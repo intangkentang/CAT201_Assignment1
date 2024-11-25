@@ -68,6 +68,7 @@
     <!-- Button to save the book data into csv file-->
     <HBox alignment="BOTTOM_RIGHT">
         <Button text="Save Data" onAction="#handleSave" style="-fx-background-color: olivedrab; -fx-text-fill: white; -fx-border-color: darkgreen"/>
+        <Label text="   "/>
     </HBox>
 </VBox>
 
