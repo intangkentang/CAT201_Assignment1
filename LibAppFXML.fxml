@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Scene builder for the Library Management System(interface) -->
+<VBox spacing="10" xmlns="http://javafx.com/fxml" xmlns:fx="http://javafx.com/fxml" fx:controller="LibAppController"
+      prefHeight="600.0" prefWidth="500.0" style="-fx-background-color:DARKSEAGREEN;">
+    <!-- Title Label -->
+    <HBox alignment="CENTER">
+        <Label text="Welcome to Library Management System" style="-fx-font-size: 14; -fx-text-fill: white; -fx-font-weight: bold"/>
+    </HBox>
+    <!-- Separator for layout structure -->
+    <Separator prefWidth="400" />
+    <!-- Section for Adding a New Book -->
+    <HBox alignment="TOP_CENTER">
+        <Label text="Add New Book" style="-fx-font-size: 12; -fx-text-fill: white; -fx-font-weight: bold"/>
+    </HBox>
+    <!-- Input fields for adding a new book -->
+    <HBox spacing="5" alignment="CENTER">
+        <TextField fx:id="newBookTitle" promptText="Book Title" />
+        <TextField fx:id="newBookAuthor" promptText="Author" />
+        <TextField fx:id="newBookISBN" promptText="ISBN" />
+    </HBox>
+    <!-- Checkbox to indicate availability status -->
+    <HBox alignment="CENTER" spacing="5">
+        <CheckBox fx:id="newBookStatus" selected="true" text="available" style="-fx-text-fill: white;"/>
+    </HBox>
+    <!-- Button to add a new book -->
+    <HBox alignment="CENTER">
+        <Button text="Add Book" onAction="#handleAddBook" style="-fx-background-color: olivedrab; -fx-text-fill: white; -fx-border-color: darkgreen"/>
+    </HBox>
+
+    <Separator prefWidth="400" />
+    <!-- Section for Searching a Book -->
+    <HBox alignment="TOP_CENTER">
+        <Label text="Search Book" style="-fx-font-size: 12; -fx-text-fill: white; -fx-font-weight: bold"/>
+    </HBox>
+    <!-- Input fields for searching a book -->
+    <HBox spacing="5" alignment="CENTER">
+        <TextField fx:id="searchTitle" promptText="Search by Title" />
+        <TextField fx:id="searchAuthor" promptText="Search by Author" />
+        <TextField fx:id="searchISBN" promptText="Search by ISBN" />
+    </HBox>
+    <!-- Button to trigger the search -->
+    <HBox alignment="CENTER">
+        <Button text="Search Book" onAction="#handleSearch" style="-fx-background-color: olivedrab; -fx-text-fill: white; -fx-border-color: darkgreen"/>
+    </HBox>
+
+    <Separator prefWidth="400" />
+    <!-- Buttons for returning, borrowing, and displaying all books -->
+    <HBox spacing ="5" alignment="CENTER_RIGHT">
+        <Button text="Return" onAction="#handleReturn" style="-fx-background-color: olivedrab; -fx-text-fill: white; -fx-border-color: darkgreen" />
+        <Button text="Borrow" onAction="#handleBorrow" style="-fx-background-color: olivedrab; -fx-text-fill: white; -fx-border-color: darkgreen"/>
+        <Button text="Display All" onAction="#handleDisplayAll" style="-fx-background-color: olivedrab; -fx-text-fill: white; -fx-border-color: darkgreen"/>
+        <Label text="   "/>
+    </HBox>
+    <!-- TableView to display the list of books -->
+    <TableView fx:id="bookTable" prefHeight="200" prefWidth="300">
+        <columns>
+            <TableColumn text="Title" fx:id="titleColumn" />
+            <TableColumn text="Author" fx:id="authorColumn" />
+            <TableColumn text="ISBN" fx:id="isbnColumn" />
+            <TableColumn text="Availability" fx:id="statusColumn" />
+            <TableColumn text="Borrower Name" fx:id="borrowerColumn" />
+        </columns>
+    </TableView>
+    <!-- Button to save the book data into csv file-->
+    <HBox alignment="BOTTOM_RIGHT">
+        <Button text="Save Data" onAction="#handleSave" style="-fx-background-color: olivedrab; -fx-text-fill: white; -fx-border-color: darkgreen"/>
+    </HBox>
+</VBox>
+
